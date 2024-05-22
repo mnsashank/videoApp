@@ -5,9 +5,10 @@ import dotenv from "dotenv"
 import cors from "cors"
 
 dotenv.config();
+
 const app = express();
 const port = process.env.PORT || 8080;
-
+console.log(process.env.PORT)
 app.use(cors({
     allowedHeaders: ["*"],
     origin: "*"

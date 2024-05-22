@@ -1,6 +1,14 @@
 import express from "express"
-import uploadFileToS3 from '../controllers/upload.controller.js'
+import {uploadChunk, initializeUpload, completeUpload} from '../controllers/upload.controller.js'
+
+import multer from 'multer';
+const upload = multer();
 
 const router = express.Router();
-router.post('/' , uploadFileToS3);
+//initialize
+router.post('/initialize', upload.none(), initializeUpload);
+//upload single chunk
+router.post('/' ,upload.single('chunk'), uploadChunk);
+//complete upload
+router.post('/complete', completeUpload);
 export default router;

@@ -1,6 +1,7 @@
 import AWS from 'aws-sdk';
 import fs from 'fs'
 
+
 const multipartUploadFileToS3 = async( req, res ) =>{
 
     console.log('multi part upload req received.');
